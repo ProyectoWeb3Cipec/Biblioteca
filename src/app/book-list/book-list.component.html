@@ -1,0 +1,28 @@
+<h2>Lista de Libros</h2>
+<a routerLink="/add">Agregar Libro</a>
+
+<!-- Formulario de Búsqueda -->
+<form (ngSubmit)="onSearch()">
+  <label for="search">Buscar:</label>
+  <input id="search" [(ngModel)]="searchText" name="searchText" placeholder="Buscar por título, autor o año">
+  <button type="submit">Buscar</button>
+</form>
+
+<!-- Lista de Libros -->
+<ul>
+    <li *ngFor="let book of filteredBooks">
+      <div class="book-info">
+        <a [routerLink]="['/detail', book.id]">{{ book.title }}</a>
+        <span>{{ book.author }} ({{ book.year }})</span>
+      </div>
+      <div class="book-actions">
+        <button (click)="editBook(book.id)">Editar</button>
+        <button (click)="deleteBook(book.id)">Eliminar</button>
+      </div>
+    </li>
+  </ul>
+  
+
+<!-- Mensaje de No Resultados -->
+<p *ngIf="filteredBooks.length === 0">No se encontraron libros que coincidan con la búsqueda.</p>
+

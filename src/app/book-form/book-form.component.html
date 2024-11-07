@@ -1,0 +1,14 @@
+<h2>{{book ? 'Editar Libro':'Agregar Libro'}}</h2>
+<form (ngSubmit)="onSubmit()">
+  <label for="title">Título</label>
+  <input id="title" [(ngModel)]="book.title" name="title" required>
+
+  <label for="author">Autor</label>
+  <input id="author" [(ngModel)]="book.author" name="author" required>
+
+  <label for="year">Año</label>
+  <input id="year" [(ngModel)]="book.year" name="year" type="number" required>
+
+  <button type="submit">Guardar</button>
+</form>
+

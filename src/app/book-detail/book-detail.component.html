@@ -1,0 +1,8 @@
+<h2>Detalles del Libro</h2>
+<div *ngIf="book">
+  <h3>{{ book.title }}</h3>
+  <p><strong>Autor:</strong> {{ book.author }}</p>
+  <p><strong>Año:</strong> {{ book.year }}</p>
+  <button (click)="goBack()">Volver</button>
+</div>
+
